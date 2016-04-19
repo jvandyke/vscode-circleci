@@ -71,10 +71,15 @@ export function buildDetailsForFailure(build) {
   ].join(' ');
 }
 
-export function quickPickItemFromBuild(build): vscode.QuickPickItem {
+interface QuickPickItem extends vscode.QuickPickItem {
+  url: string
+}
+
+export function quickPickItemFromBuild(build): QuickPickItem {
   return {
     label: buildLabel(build),
     description: '',
-    detail: buildDetails(build)
+    detail: buildDetails(build),
+    url: build.build_url
   };
 }

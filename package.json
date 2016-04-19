@@ -41,6 +41,7 @@
     "git-user-name": "^1.2.0",
     "git-username": "^0.4.0",
     "lodash": "^4.11.1",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "open": "0.0.5"
   }
 }

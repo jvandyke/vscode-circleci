@@ -3,16 +3,9 @@ import * as format from '../format';
 import git from '../gitconfig';
 import ci from '../circleci';
 import * as _ from 'lodash';
+import open from '../open-url';
 
 function execute() {
-  commands.getCommands().then((commandIds) => {
-    console.log("all commands", commandIds);
-  });
-  
-  
-  commands.executeCommand('editor.action.openLink', 'http://theverge.com');
-  
-  
   let buildsPromise = ci().getBranchBuilds({
     username: git.username,
     project: git.repo,
@@ -27,7 +20,12 @@ function execute() {
     matchOnDescription: true,
     matchOnDetail: true
   })
-  .then(() => {}, (error) => {
+  // Success
+  .then((build) => {
+    open(build.url);
+  },
+  // Error
+  (error) => {
     let openUserSettings = 'Open user settings'
     window.showErrorMessage("There was an error connecting to CircleCI. Make sure your API key is valid.", openUserSettings)
       .then((action) => {
