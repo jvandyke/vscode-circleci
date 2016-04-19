@@ -1,6 +1,7 @@
 import * as moment from 'moment';
-import * as _ from 'lodash';
+// import * as _ from 'lodash';
 import * as vscode from 'vscode';
+var _ = require('lodash');
 
 // These should match the keys exposed in the APi response for
 // status on a build.
