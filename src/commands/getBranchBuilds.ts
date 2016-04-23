@@ -1,15 +1,15 @@
 import {window, commands} from 'vscode';
 import * as format from '../format';
-import git from '../gitconfig';
+import {getRepoName, getBranch, getUsername} from '../git';
 import ci from '../circleci';
 import * as _ from 'lodash';
 import open from '../open-url';
 
 function execute() {
   let buildsPromise = ci().getBranchBuilds({
-    username: git.username,
-    project: git.repo,
-    branch: git.branch,
+    username: getUsername(),
+    project: getRepoName(),
+    branch: getBranch(),
   }).then((builds) => {
     console.log(builds[0]);
     return builds.map(format.quickPickItemFromBuild);
@@ -22,7 +22,9 @@ function execute() {
   })
   // Success
   .then((build) => {
-    open(build.url);
+    if (build && build.url) {
+      open(build.url);
+    }
   },
   // Error
   (error) => {
