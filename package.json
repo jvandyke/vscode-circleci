@@ -1,14 +1,33 @@
 {
   "name": "vcs-circleci",
-  "displayName": "Circle CI",
+  "displayName": "CircleCI",
   "description": "CircleCI commands and status",
-  "version": "0.0.1",
-  "publisher": "jvandyke",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#3E3E3E",
+    "theme": "dark"
+  },
+  "version": "0.1.0",
+  "publisher": "James Van Dyke",
+  "homepage": "https://github.com/jvandyke/vsc-circleci",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jvandyke/vsc-circleci.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jvandyke/vsc-circleci/issues"
+  },
   "engines": {
     "vscode": "^1.0.0"
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "circleci",
+    "circle",
+    "ci",
+    "build"
   ],
   "activationEvents": [
     "workspaceContains:circle.yaml",

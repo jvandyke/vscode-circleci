@@ -1,5 +1,7 @@
 # CircleCI extension for Visual Studio Code
 
+![Screenshot of extension](images/screenshot.png)
+
 ## Configuring
 
 Create an API token in your [CircleCI dashboard](https://circleci.com/account/api)
