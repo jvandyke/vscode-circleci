@@ -1,7 +1,7 @@
 import {window, workspace} from 'vscode';
 import {getRepoName, getBranch, getUsername} from './git';
 let CircleCiApi = require('circleci');
-import * as _ from 'lodash';
+let _ = require('lodash');
 
 let apiKey = getApiKey();
 

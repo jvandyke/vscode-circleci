@@ -2,7 +2,7 @@ import {window, commands} from 'vscode';
 import * as format from '../format';
 import {getRepoName, getBranch, getUsername} from '../git';
 import ci from '../circleci';
-import * as _ from 'lodash';
+let _ = require('lodash');
 import open from '../open-url';
 
 function execute() {

@@ -8,7 +8,7 @@
     "theme": "dark"
   },
   "version": "0.1.0",
-  "publisher": "James Van Dyke",
+  "publisher": "jvandyke",
   "homepage": "https://github.com/jvandyke/vsc-circleci",
   "repository": {
     "type": "git",
@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "typescript": "^1.8.5",
-    "vscode": "^0.11.0"
+    "vscode": "^0.11.10"
   },
   "dependencies": {
     "circleci": "^0.3.1",

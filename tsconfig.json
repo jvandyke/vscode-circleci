@@ -9,9 +9,6 @@
         "rootDir": "."
     },
     "exclude": [
-        "node_modules",
-        "out",
-        "typings/browser",
-        "typings/browser.d.ts"
+        "node_modules"
     ]
 }

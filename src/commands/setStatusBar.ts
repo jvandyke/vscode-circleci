@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import * as _ from 'lodash';
+let _ = require('lodash');
 import ci from '../circleci';
 import {getRepoName, getBranch, getUsername} from '../git';
 import * as extContext from '../context';

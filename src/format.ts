@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import * as _ from 'lodash';
+let _ = require('lodash');
 import * as vscode from 'vscode';
 import * as ci from './circleci';
 
