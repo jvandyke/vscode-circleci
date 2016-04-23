@@ -1,7 +1,7 @@
 import * as moment from 'moment';
-// import * as _ from 'lodash';
+import * as _ from 'lodash';
 import * as vscode from 'vscode';
-var _ = require('lodash');
+import * as ci from './circleci';
 
 // These should match the keys exposed in the APi response for
 // status on a build.
@@ -19,7 +19,7 @@ export function timeElapsed(startTime: string, stopTime: string) {
   return moment(startTime).diff(moment(stopTime), 'mins');
 }
 
-export function buildLabel(build) {
+export function buildLabel(build: CircleCIBuild) {
   return [
     "#" + build.build_num,
     build.subject
@@ -30,17 +30,17 @@ export function buildDescription(build:Object) {
   return "";
 }
 
-export function buildDetails(build) {
+export function buildDetails(build: CircleCIBuild) {
   return (statusFormatters[build.status] || buildDetailsForGeneric)(build); 
 }
 
-export function buildDetailsForGeneric(build) {
+export function buildDetailsForGeneric(build: CircleCIBuild) {
   return [
     _.startCase(build.status),
   ].join(' ');
 }
 
-export function buildDetailsForRunning(build) {
+export function buildDetailsForRunning(build: CircleCIBuild) {
   return [
     _.startCase(build.status),
     '-',
@@ -51,7 +51,7 @@ export function buildDetailsForRunning(build) {
   ].join(' ');
 }
 
-export function buildDetailsForSuccess(build) {
+export function buildDetailsForSuccess(build: CircleCIBuild) {
   return [
     _.startCase(build.status),
     '-',
@@ -61,7 +61,7 @@ export function buildDetailsForSuccess(build) {
   ].join(' ');
 }
 
-export function buildDetailsForFailure(build) {
+export function buildDetailsForFailure(build: CircleCIBuild) {
   return [
     _.startCase(build.status),
     '-',
@@ -71,15 +71,11 @@ export function buildDetailsForFailure(build) {
   ].join(' ');
 }
 
-interface QuickPickItem extends vscode.QuickPickItem {
-  url: string
-}
-
-export function quickPickItemFromBuild(build): QuickPickItem {
+export function quickPickItemFromBuild(build: CircleCIBuild): QuickPickItem {
   return {
     label: buildLabel(build),
     description: '',
     detail: buildDetails(build),
-    url: build.build_url
+    build: build
   };
 }

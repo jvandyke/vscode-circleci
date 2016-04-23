@@ -13,13 +13,14 @@ import * as setStatusBar from './commands/setStatusBar';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-  vscode.commands.getCommands().then((commands) => {
-    commands.forEach((command) => {
-      if (/git/.test(command)) {
-        console.log(command);
-      }
-    })
-  });
+  // For debugging purposes
+  // vscode.commands.getCommands().then((commands) => {
+  //   commands.forEach((command) => {
+  //     if (/git/.test(command)) {
+  //       console.log(command);
+  //     }
+  //   })
+  // });
   
   extContext.setContext(context);
   openUrl.registerCommands();

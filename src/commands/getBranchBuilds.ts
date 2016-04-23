@@ -6,14 +6,10 @@ import * as _ from 'lodash';
 import open from '../open-url';
 
 function execute() {
-  let buildsPromise = ci().getBranchBuilds({
-    username: getUsername(),
-    project: getRepoName(),
-    branch: getBranch(),
-  }).then((builds) => {
-    console.log(builds[0]);
-    return builds.map(format.quickPickItemFromBuild);
-  });
+  let buildsPromise = ci.getBranchBuilds()
+    .then((builds) => {
+      return builds.map(format.quickPickItemFromBuild);
+    });
   
   return window.showQuickPick(buildsPromise, {
     placeHolder: 'Select a build to open it in a browser',
@@ -21,9 +17,9 @@ function execute() {
     matchOnDetail: true
   })
   // Success
-  .then((build) => {
-    if (build && build.url) {
-      open(build.url);
+  .then((item?: QuickPickItem) => {
+    if (item && item.build.build_url) {
+      open(item.build.build_url);
     }
   },
   // Error

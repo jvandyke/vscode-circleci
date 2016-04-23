@@ -1,5 +1,6 @@
 import {window, workspace} from 'vscode';
-let CircleCI = require('circleci');
+import {getRepoName, getBranch, getUsername} from './git';
+let CircleCiApi = require('circleci');
 import * as _ from 'lodash';
 
 let apiKey = getApiKey();
@@ -13,11 +14,11 @@ function getApiKey(): string {
   return <string>circleCiConfig.get('apiKey');
 }
 
-function _getInstance(apiKey) {
+function _getInstance(apiKey: string) {
   if (!apiKey) {
     window.showErrorMessage("No CircleCI API key available. Set \"circleci.apiKey\" to fix this.", 'Open config');
   }
-  return new CircleCI({
+  return new CircleCiApi({
     auth: apiKey
   });
 }
@@ -30,4 +31,22 @@ let getInstance = _.memoize(function() {
   return apiKey;
 });
 
-export default getInstance;
+export default new class CircleCI {
+  constructor() {}
+  public getBranchBuilds(limit?: number, offset?: number): PromiseLike<Array<CircleCIBuild>> {
+    return getInstance().getBranchBuilds({
+      username: getUsername(),
+      project: getRepoName(),
+      branch: getBranch(),
+      limit: limit || 30,
+      offset: offset || 0,
+    });
+  }
+  
+  public getLatestBranchBuild(): PromiseLike<CircleCIBuild> {
+    return this.getBranchBuilds(1)
+      .then((builds) => {
+        return _.first(builds);
+      });
+  }
+}

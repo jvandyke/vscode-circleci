@@ -35,11 +35,7 @@ function getRefreshRate(): number {
   return <number>circleCiConfig.get('rate') || 10 * 1000;
 }
 
-function getLatestBuild(builds) {
-  return _.first(builds);
-}
-
-function setStatusBarItem(build): void {
+function setStatusBarItem(build: CircleCIBuild): void {
   if (!statusBarItem) {
     statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
   }
@@ -55,16 +51,12 @@ function setStatusBarItem(build): void {
 }
 
 export function startUpdate() {
-  let buildsPromise = ci().getBranchBuilds({
-    username: getUsername(),
-    project: getRepoName(),
-    branch: getBranch(),
-  }).then((builds) => {
-    let latestBuild = getLatestBuild(builds);
-    extContext.setCurrentBuild(latestBuild);
-    setStatusBarItem(latestBuild);
-    updateTimeout = setTimeout(startUpdate, rate);
-  });
+  let buildsPromise = ci.getLatestBranchBuild()
+    .then((build) => {
+      extContext.setCurrentBuild(build);
+      setStatusBarItem(build);
+      updateTimeout = setTimeout(startUpdate, rate);
+    });
 }
 
 export function stopUpdate() {

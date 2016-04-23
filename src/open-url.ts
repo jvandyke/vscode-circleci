@@ -2,8 +2,7 @@ import * as vscode from 'vscode';
 import * as extContext from './context';
 let open = require('open');
 
-function openUrlFromBuild(build) {
-  console.log("opneUrl", build);
+function openUrlFromBuild(build: CircleCIBuild) {
   openUrl(build.build_url);
 }
 
@@ -15,7 +14,7 @@ export function registerCommands() {
   vscode.commands.registerCommand('circleci.openUrl.fromBuild', openUrlFromCurrentBuild);
 }
 
-export default function openUrl(url) {
+export default function openUrl(url: string) {
   try {
     open(url);
   }
