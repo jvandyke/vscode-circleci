@@ -1,13 +1,16 @@
-# README
-## This is the README for your extension "circleci"
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+# CircleCI extension for Visual Studio Code
 
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
+## Configuring
 
-### For more information
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+Create an API token in your [CircleCI dashboard](https://circleci.com/account/api)
+and add it to your workspace configuration file. Keys from the repo settings page will not work.
+
+**Settings:**
+`circleci.apiKey`: _String_. API key you create in your [CircleCI dashboard](https://circleci.com/account/api)
+`circleci.rate`: _Number_. How often this extension will refresh status for the current branch. In seconds. Default: 10.
+
+## Contributing
+
+Please do. I'm also just interested in features you'd like to see.
 
 **Enjoy!**
