@@ -5,9 +5,9 @@
   "icon": "images/icon.png",
   "galleryBanner": {
     "color": "#fbfbfb",
-    "theme": "dark"
+    "theme": "light"
   },
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "jvandyke",
   "homepage": "https://github.com/jvandyke/vscode-circleci",
   "repository": {
