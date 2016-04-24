@@ -33,7 +33,7 @@ let getInstance = _.memoize(function() {
 
 export default new class CircleCI {
   constructor() {}
-  public getBranchBuilds(limit?: number, offset?: number): PromiseLike<Array<CircleCIBuild>> {
+  public getBranchBuilds(limit?: number, offset?: number) {
     return getInstance().getBranchBuilds({
       username: getUsername(),
       project: getRepoName(),
@@ -42,8 +42,8 @@ export default new class CircleCI {
       offset: offset || 0,
     });
   }
-  
-  public getLatestBranchBuild(): PromiseLike<CircleCIBuild> {
+
+  public getLatestBranchBuild() {
     return this.getBranchBuilds(1)
       .then((builds) => {
         return _.first(builds);

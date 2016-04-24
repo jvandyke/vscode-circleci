@@ -10,14 +10,15 @@ function execute() {
     .then((builds) => {
       return builds.map(format.quickPickItemFromBuild);
     });
-  
+
   return window.showQuickPick(buildsPromise, {
     placeHolder: 'Select a build to open it in a browser',
     matchOnDescription: true,
     matchOnDetail: true
   })
   // Success
-  .then((item?: QuickPickItem) => {
+  .then((item:any) => {
+    item = item;
     if (item && item.build.build_url) {
       open(item.build.build_url);
     }

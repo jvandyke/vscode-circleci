@@ -1,10 +1,11 @@
+/// <reference path="../typings/vscode-typings.d.ts"/>
 let context;
 
-export function setContext(c: vscode.ExtensionContext) {
+export function setContext(c) {
   context = c;
 }
 
-export function getContext(): vscode.ExtensionContext {
+export function getContext() {
   return context;
 }
 

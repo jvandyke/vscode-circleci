@@ -1,3 +1,4 @@
+
 /**
  * Build information returned from CircleCI.
  */
@@ -17,9 +18,10 @@ interface CircleCIBuild {
  * for this extension to include some special properties to make
  * accessing them easier.
  */
-interface QuickPickItem extends vscode.QuickPickItem {
+interface QuickPickItem {
   /**
    * The build associated with this QuickPickItem
    */
-  build: CircleCIBuild
+  build: CircleCIBuild,
+  [key: string]: any
 }
