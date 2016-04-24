@@ -1,5 +1,5 @@
 {
-  "name": "vcs-circleci",
+  "name": "vscode-circleci",
   "displayName": "CircleCI",
   "description": "CircleCI commands and status",
   "icon": "images/icon.png",
@@ -9,13 +9,13 @@
   },
   "version": "0.1.0",
   "publisher": "jvandyke",
-  "homepage": "https://github.com/jvandyke/vsc-circleci",
+  "homepage": "https://github.com/jvandyke/vscode-circleci",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jvandyke/vsc-circleci.git"
+    "url": "https://github.com/jvandyke/vscode-circleci.git"
   },
   "bugs": {
-    "url": "https://github.com/jvandyke/vsc-circleci/issues"
+    "url": "https://github.com/jvandyke/vscode-circleci/issues"
   },
   "engines": {
     "vscode": "^1.0.0"
