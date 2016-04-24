@@ -4,10 +4,10 @@
   "description": "CircleCI commands and status",
   "icon": "images/icon.png",
   "galleryBanner": {
-    "color": "#3E3E3E",
+    "color": "#fbfbfb",
     "theme": "dark"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "jvandyke",
   "homepage": "https://github.com/jvandyke/vscode-circleci",
   "repository": {
