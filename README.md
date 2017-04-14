@@ -12,11 +12,10 @@
 
 This extension will run if you have a `circle.yml` file in your project root.
 
-Create an API token in your [CircleCI dashboard](https://circleci.com/account/api)
-and add it to your workspace configuration file. Keys from the repo settings page will not work.
+Create an API token in your [CircleCI dashboard](https://circleci.com/account/api) and add it to your workspace configuration file (make sure you select the "Build Artifacts" or "All" scope option). Keys from the repo settings page will not work.
 
 **Settings:**
-`circleci.apiKey`: _String_. API key you create in your [CircleCI dashboard](https://circleci.com/account/api)
+`circleci.apiKey`: _String_. API key you create in your [CircleCI dashboard](https://circleci.com/account/api). Scope must be set to either "Build Artifacts" or "All".
 `circleci.rate`: _Number_. How often this extension will refresh status for the current branch. In seconds. Default: 10.
 
 ## Upcoming
