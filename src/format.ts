@@ -16,7 +16,7 @@ export function timeAgo(date: string) {
 }
 
 export function timeElapsed(startTime: string, stopTime: string) {
-  return moment(startTime).diff(moment(stopTime), 'mins');
+  return moment(startTime).diff(moment(stopTime), "minutes");
 }
 
 export function buildLabel(build: CircleCIBuild) {
