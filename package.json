@@ -31,7 +31,9 @@
   ],
   "activationEvents": [
     "workspaceContains:circle.yaml",
-    "workspaceContains:circle.yml"
+    "workspaceContains:circle.yml",
+    "workspaceContains:.circleci/config.yaml",
+    "workspaceContains:.circleci/config.yml"
   ],
   "main": "./out/src/extension",
   "contributes": {
@@ -40,7 +42,22 @@
         "command": "extension.branchBuilds",
         "title": "CircleCI: Show builds for current branch"
       }
-    ]
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "CircleCI",
+      "properties": {
+        "circleci.apiKey": {
+          "type": "string",
+          "description": "API key you create in your CircleCI dashboard. Scope must be set to either \"Build Artifacts\" or \"All\"."
+        },
+        "circleci.rate": {
+          "type": "number",
+          "default": 10,
+          "description": "How often this extension will refresh status for the current branch. In seconds." 
+        }
+      }
+    }
   },
   "scripts": {
     "prepublish": "npm run vscode:prepublish",
