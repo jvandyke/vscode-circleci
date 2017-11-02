@@ -1,83 +1,83 @@
 {
-  "name": "vscode-circleci",
-  "displayName": "CircleCI",
-  "description": "CircleCI commands and status",
-  "icon": "images/icon.png",
-  "galleryBanner": {
-    "color": "#fbfbfb",
-    "theme": "light"
-  },
-  "version": "0.1.2",
-  "publisher": "jvandyke",
-  "homepage": "https://github.com/jvandyke/vscode-circleci",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jvandyke/vscode-circleci.git"
-  },
-  "bugs": {
-    "url": "https://github.com/jvandyke/vscode-circleci/issues"
-  },
-  "engines": {
-    "vscode": "^1.0.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "keywords": [
-    "circleci",
-    "circle",
-    "ci",
-    "build"
-  ],
-  "activationEvents": [
-    "workspaceContains:circle.yaml",
-    "workspaceContains:circle.yml",
-    "workspaceContains:.circleci/config.yaml",
-    "workspaceContains:.circleci/config.yml"
-  ],
-  "main": "./out/src/extension",
-  "contributes": {
-    "commands": [
-      {
-        "command": "extension.branchBuilds",
-        "title": "CircleCI: Show builds for current branch"
-      }
+    "name": "vscode-circleci",
+    "displayName": "CircleCI",
+    "description": "CircleCI commands and status",
+    "icon": "images/icon.png",
+    "galleryBanner": {
+        "color": "#fbfbfb",
+        "theme": "light"
+    },
+    "version": "0.5.0",
+    "publisher": "jvandyke",
+    "homepage": "https://github.com/jvandyke/vscode-circleci",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jvandyke/vscode-circleci.git"
+    },
+    "bugs": {
+        "url": "https://github.com/jvandyke/vscode-circleci/issues"
+    },
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Other"
     ],
-    "configuration": {
-      "type": "object",
-      "title": "CircleCI",
-      "properties": {
-        "circleci.apiKey": {
-          "type": "string",
-          "description": "API key you create in your CircleCI dashboard. Scope must be set to either \"Build Artifacts\" or \"All\"."
-        },
-        "circleci.rate": {
-          "type": "number",
-          "default": 10,
-          "description": "How often this extension will refresh status for the current branch. In seconds." 
+    "keywords": [
+        "circleci",
+        "circle",
+        "ci",
+        "build"
+    ],
+    "activationEvents": [
+        "workspaceContains:circle.yaml",
+        "workspaceContains:circle.yml",
+        "workspaceContains:.circleci/config.yaml",
+        "workspaceContains:.circleci/config.yml"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.branchBuilds",
+                "title": "CircleCI: Show builds for current branch"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "CircleCI",
+            "properties": {
+                "circleci.apiKey": {
+                    "type": "string",
+                    "description": "API key you create in your CircleCI dashboard. Scope must be set to either \"Build Artifacts\" or \"All\"."
+                },
+                "circleci.rate": {
+                    "type": "number",
+                    "default": 10,
+                    "description": "How often this extension will refresh status for the current branch. In seconds."
+                }
+            }
         }
-      }
+    },
+    "scripts": {
+        "prepublish": "npm run vscode:prepublish",
+        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^1.8.5",
+        "vscode": "^0.11.10"
+    },
+    "dependencies": {
+        "circleci": "^0.3.1",
+        "git-branch": "^0.3.0",
+        "git-repo-name": "^0.5.1",
+        "git-user-name": "^1.2.0",
+        "git-username": "^0.4.0",
+        "lodash": "^4.11.1",
+        "moment": "^2.13.0",
+        "open": "0.0.5"
     }
-  },
-  "scripts": {
-    "prepublish": "npm run vscode:prepublish",
-    "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-    "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "node ./node_modules/vscode/bin/test"
-  },
-  "devDependencies": {
-    "typescript": "^1.8.5",
-    "vscode": "^0.11.10"
-  },
-  "dependencies": {
-    "circleci": "^0.3.1",
-    "git-branch": "^0.3.0",
-    "git-repo-name": "^0.5.1",
-    "git-user-name": "^1.2.0",
-    "git-username": "^0.4.0",
-    "lodash": "^4.11.1",
-    "moment": "^2.13.0",
-    "open": "0.0.5"
-  }
 }
